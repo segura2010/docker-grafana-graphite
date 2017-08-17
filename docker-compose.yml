@@ -6,11 +6,13 @@ services:
     container_name: kamon-grafana-dashboard
     ports:
       - '80:80'
-      - '81:81'
-      - '8125:8125/udp'
-      - '8126:8126'
+#      - '81:81'
+#      - '8125:8125/udp'
+#      - '8126:8126'
       - '2003:2003'
     volumes:
       - ./data/whisper:/opt/graphite/storage/whisper
       - ./data/grafana:/opt/grafana/data
       - ./log/graphite:/opt/graphite/storage/log
+    environment:
+      - GF_USERS_ALLOW_SIGN_UP=false
